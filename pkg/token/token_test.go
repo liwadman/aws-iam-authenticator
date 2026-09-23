@@ -471,6 +471,7 @@ func TestVerifySetsUserAgent(t *testing.T) {
 		client:            &http.Client{Transport: rt},
 		validSTShostnames: make(map[string]bool),
 		partition:         "aws",
+		clusterID:         "test-cluster",
 	}
 	if _, err := verifier.Verify(validToken); err != nil {
 		t.Fatalf("received unexpected error: %s", err)
