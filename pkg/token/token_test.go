@@ -478,7 +478,7 @@ func TestVerifySetsUserAgent(t *testing.T) {
 	if rt.lastRequest == nil {
 		t.Fatal("expected an STS request to be made but none was captured")
 	}
-	want := fmt.Sprintf("%s/%s", userAgentPrefix, pkg.Version)
+	want := fmt.Sprintf("%s/%s (%s)", userAgentPrefix, pkg.Version, verifier.clusterID)
 	if got := rt.lastRequest.Header.Get("User-Agent"); got != want {
 		t.Errorf("expected User-Agent header %q but got %q", want, got)
 	}
