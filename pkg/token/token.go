@@ -691,7 +691,7 @@ func (v *tokenVerifier) Verify(token string) (*Identity, error) {
 	}
 	req.Header.Set(clusterIDHeader, v.clusterID)
 	req.Header.Set("accept", "application/json")
-	req.Header.Set("User-Agent", fmt.Sprintf("%s/%s", userAgentPrefix, pkg.Version))
+	req.Header.Set("User-Agent", fmt.Sprintf("%s/%s (%s)", userAgentPrefix, pkg.Version, v.clusterID))
 
 	response, err := v.client.Do(req)
 	if err != nil {
